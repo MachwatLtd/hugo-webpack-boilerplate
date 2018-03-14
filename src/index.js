@@ -102,8 +102,10 @@ export const fromConfig = ({ hugoPublishDir = TMP_DIR, outDir = PUBLISH_DIR }) =
             },
             'sharp-image-loader'
           ]
-        },
-        {
+        }, {
+          test: /favicon\.ico$/,
+          loader:'file-loader?name=img/[path][name].[ext]&context=./app/images'
+        }, {
           test: /.jsx?$/i,
           exclude: /node_modules/,
           use: [
